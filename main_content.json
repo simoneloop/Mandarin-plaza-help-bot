@@ -1,0 +1,92 @@
+{
+  "contents": [
+    {
+      "lang": "it",
+      "home": [
+        {
+          "msg_type": "text",
+          "label": "Riguardo Mandarin Plaza",
+          "text": "cosa è mandarin",
+          "src_image": "example_img1.jpg"
+        },
+        {
+          "msg_type": "text",
+          "label": "Riguardo il tax refund",
+          "text": "cosa è il tax refund",
+          "src_image": "example_img2.jpg"
+        },
+        {
+          "msg_type": "video_list",
+          "label": "Tutorial",
+          "button_list": [
+            {
+              "label": "tutorial1",
+              "src": "example_video1.mp4"
+            },
+            {
+              "label": "tutorial2",
+              "src": "example_video2.mp4"
+            }
+          ],
+          "text": ""
+        },
+        {
+          "msg_type": "text",
+          "label": "Calcola i guadagni del tuo team",
+          "text": "guadagni del team",
+          "src_image": "none"
+        },
+        {
+          "msg_type": "text",
+          "label": "Diventa partner",
+          "text": "come diventare partner e le sue condizioni",
+          "src_image": "none"
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "home": [
+        {
+          "msg_type": "text",
+          "label": "About Mandarin plaza",
+          "text": "what is mandarino",
+          "src_image": "example_img1.jpg"
+        },
+        {
+          "msg_type": "text",
+          "label": "about tax refun",
+          "text": "what is tax refund",
+          "src_image": "example_img2.jpg"
+        },
+        {
+          "msg_type": "video_list",
+          "label": "Tutorial",
+          "button_list": [
+            {
+              "label": "tutorial1",
+              "src": "example_video1.mp4"
+            },
+            {
+              "label": "tutorial2",
+              "src": "example_video2.mp4"
+            }
+          ],
+          "text": ""
+        },
+        {
+          "msg_type": "text",
+          "label": "calculate team revenue",
+          "text": "guadagni del team",
+          "src_image": "none"
+        },
+        {
+          "msg_type": "text",
+          "label": "became partner",
+          "text": "how to became partner and the treatment",
+          "src_image": "none"
+        }
+      ]
+    }
+  ]
+}
