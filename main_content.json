@@ -21,14 +21,14 @@
           "button_list": [
             {
               "label": "tutorial1",
-              "src": "example_video1.mp4"
+              "src": "C:/Users/Asus/Desktop/ZolTryBot/file_33.mp4"
             },
             {
               "label": "tutorial2",
               "src": "example_video2.mp4"
             }
           ],
-          "text": ""
+          "text": "tutorial"
         },
         {
           "msg_type": "text",
@@ -62,6 +62,7 @@
         {
           "msg_type": "video_list",
           "label": "Tutorial",
+          "text" : "ggg",
           "button_list": [
             {
               "label": "tutorial1",
@@ -71,8 +72,7 @@
               "label": "tutorial2",
               "src": "example_video2.mp4"
             }
-          ],
-          "text": ""
+          ]
         },
         {
           "msg_type": "text",
