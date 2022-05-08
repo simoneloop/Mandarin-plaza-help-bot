@@ -7,7 +7,8 @@ from tkinter import PhotoImage
 token ='5396262849:AAHfchJgx8sQHSlDWRAX7K82IWjoAPJBvXA'
 bot=Bot(token=token)
 dp=Dispatcher(bot)
-main_content = json.load(open(r".\main_content.json"), encoding='utf-8')['contents']
+main_content = json.load(open(r".\main_content.json","rb"), encoding='utf-8')['contents']
+print(main_content)
 lang_buttons_list=[]
 lang_list=[]
 home_languaged=None
@@ -84,6 +85,7 @@ async def select_lang(call: types.CallbackQuery):
 async def get_content(call: types.CallbackQuery):
     id=int(call.data)
     content=dispatcher(id)
+    print(content)
 
     if(content["msg_type"]=="text"):
         #TODO inserire nella risposta foto se contenute
