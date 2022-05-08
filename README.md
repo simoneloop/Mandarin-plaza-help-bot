@@ -5,3 +5,4 @@ a simple bot for help mandarin plaza users;<br />
 -adding emoji ascii<br />
 -adding menu /change_language command & others <br />
 -grafic fix in column<br />
+-cancell command<br />
