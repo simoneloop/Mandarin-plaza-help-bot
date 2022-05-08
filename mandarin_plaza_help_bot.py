@@ -76,7 +76,7 @@ async def select_lang(call: types.CallbackQuery):
     for c in main_content:
         if c['lang'] == call.data:
            home_languaged=c['home']
-           await call.message.reply(text="Home",reply_markup=home_keyboard(home_languaged))
+           await call.message.reply(text="Ecco la tua home",reply_markup=home_keyboard(home_languaged))
     await call.answer()
 
 
