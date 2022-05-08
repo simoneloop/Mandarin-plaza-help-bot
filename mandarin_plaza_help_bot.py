@@ -9,8 +9,7 @@ bot=Bot(token=token)
 dp=Dispatcher(bot)
 main_content = json.load(open(r".\main_content.json","rb"), encoding='utf-8')['contents']
 print(main_content)
-lang_buttons_list=[]
-lang_list=[]
+lang_list = []
 home_languaged=None
 ##################indexing content###########################
 cont=0
@@ -26,9 +25,9 @@ for i in main_content:
                k['id']=cont
                id_video_list.append(cont)
                cont+=1
-
+print(main_content)
 #############################################################
-
+#TODO può essere migliorata
 def dispatcher(id=-1):
     for i in main_content:
         for j in i['home']:
@@ -40,13 +39,17 @@ def dispatcher(id=-1):
                         return k
 
 
+def lang_keyborad(content):
+    lang_buttons_list = []
 
-
-for i in main_content:
-    lang=i['lang']
-    lang_list.append(lang)
-    lang_buttons_list.append(InlineKeyboardButton(text=lang,callback_data=lang))
-keyboard_inline = InlineKeyboardMarkup().add(*lang_buttons_list)
+    for i in content:
+        lang=i['lang']
+        if(lang not in lang_list):
+            lang_list.append(lang)
+        #TODO insert ascii emoji
+        lang_buttons_list.append(InlineKeyboardButton(text=lang,callback_data=lang))
+    keyboard_inline = InlineKeyboardMarkup().add(*lang_buttons_list)
+    return keyboard_inline
 
 def home_keyboard(content):
     home_button_list=[]
@@ -61,7 +64,7 @@ def videos_keyboard(content):
 
 @dp.message_handler(commands=['start','help'])
 async def welcome(message: types.Message):
-    await message.reply("hello",reply_markup=keyboard_inline)
+    await message.reply("hello",reply_markup=lang_keyborad(main_content))
 
 
 
@@ -85,7 +88,7 @@ async def select_lang(call: types.CallbackQuery):
 async def get_content(call: types.CallbackQuery):
     id=int(call.data)
     content=dispatcher(id)
-    print(content)
+
 
     if(content["msg_type"]=="text"):
         #TODO inserire nella risposta foto se contenute
