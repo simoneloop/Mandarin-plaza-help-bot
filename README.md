@@ -6,3 +6,4 @@ a simple bot for help mandarin plaza users;<br />
 -adding menu /change_language command /home command & others <br />
 -grafic fix in column<br />
 -cancell command<br />
+-referral code button and count <br />
