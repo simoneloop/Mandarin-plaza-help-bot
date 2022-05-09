@@ -1,8 +1,9 @@
 {
   "contents": [
     {
-      "lang": "en",
+      "lang": "en \uD83C\uDDEC\uD83C\uDDE7",
       "home": [
+        
         {
           "msg_type": "text",
           "label": "About Mandarin plaza",
@@ -41,11 +42,17 @@
           "label": "became partner",
           "text": "how to became partner and the treatment",
           "src_image": "none"
+        },
+        {
+          "msg_type": "text",
+          "label": "referral",
+          "text": "come in Mandarin Plaza"
+          
         }
       ]
     },
     {
-      "lang": "it",
+      "lang": "it \uD83C\uDDEE\uD83C\uDDF9",
       "home": [
         {
           "msg_type": "text",
@@ -65,7 +72,7 @@
           "button_list": [
             {
               "label": "tutorial1",
-              "src": "C:/Users/Asus/Desktop/ZolTryBot/file_33.mp4"
+              "src": "./media/video/file_33.mp4"
             },
             {
               "label": "tutorial2",
@@ -85,6 +92,23 @@
           "label": "Diventa partner",
           "text": "come diventare partner e le sue condizioni",
           "src_image": "none"
+        },
+        {
+          "msg_type": "invito",
+           
+          "label": "iscriviti",
+           "url":[
+             {
+                "zol": "https://themandarinplaza.com/#/register?code=37159820"
+                },
+                {
+                  "simo":"https://themandarinplaza.com/#/register?code=37159820"
+                }
+                ]
+
+
+
+          
         }
       ]
     }

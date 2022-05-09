@@ -1,16 +1,19 @@
-import json
+import json 
+
 from aiogram import Bot, Dispatcher,executor,types
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from tkinter import PhotoImage
+
 
 
 token ='5396262849:AAHfchJgx8sQHSlDWRAX7K82IWjoAPJBvXA'
 bot=Bot(token=token)
 dp=Dispatcher(bot)
-main_content = json.load(open(r".\main_content.json","rb"), encoding='utf-8')['contents']
+main_content = json.load(open(r".\main_content.json","rb"),)['contents']
+bot.set_my_commands
 print(main_content)
 lang_list = []
 home_languaged=None
+
 ##################indexing content###########################
 cont=0
 id_home_list=[]
@@ -46,66 +49,93 @@ def lang_keyborad(content):
         lang=i['lang']
         if(lang not in lang_list):
             lang_list.append(lang)
-        #TODO insert ascii emoji
+        
         lang_buttons_list.append(InlineKeyboardButton(text=lang,callback_data=lang))
-    keyboard_inline = InlineKeyboardMarkup().add(*lang_buttons_list)
-    return keyboard_inline
+    m=InlineKeyboardMarkup(row_width=1)
+    m.add(*lang_buttons_list)
+    return m
 
 def home_keyboard(content):
     home_button_list=[]
     for i in content:
         home_button_list.append(InlineKeyboardButton(text=i['label'],callback_data=i['id']))
-    return InlineKeyboardMarkup().add(*home_button_list)
+        m=types.InlineKeyboardMarkup(row_width=1)
+    
+    return m.add(*home_button_list)
+
 def videos_keyboard(content):
     videos_button_list=[]
     for i in content["button_list"]:
         videos_button_list.append(InlineKeyboardButton(text=i['label'],callback_data=i['id']))
-    return InlineKeyboardMarkup().add(*videos_button_list)
+        m=types.InlineKeyboardMarkup(row_width=1)
+    return m.add(*videos_button_list)
 
 @dp.message_handler(commands=['start','help'])
+
 async def welcome(message: types.Message):
-    await message.reply("hello",reply_markup=lang_keyborad(main_content))
+    id_user=message.from_user.id
+    
+    await bot.send_message(id_user,"hello",reply_markup=lang_keyborad(main_content))
 
-
+@dp.message_handler(commands=['language'])
+async def welcome(message: types.Message):
+    id_user=message.from_user.id
+    
+    await bot.send_message(id_user,"choose:",reply_markup=lang_keyborad(main_content))
 
 @dp.message_handler(commands=['home'])
 async def welcome(message: types.Message):
-    await message.reply(home_languaged)
+    id_user=message.from_user.id
+    
+    await bot.send_message(id_user,home_languaged)
 
 
 
 
 @dp.callback_query_handler(text=lang_list)
 async def select_lang(call: types.CallbackQuery):
+    id_user=call.from_user.id
     for c in main_content:
         if c['lang'] == call.data:
            home_languaged=c['home']
-           await call.message.reply(text="Ecco la tua home",reply_markup=home_keyboard(home_languaged))
+        
+           await bot.send_message(id_user,text="Ecco la tua home",reply_markup=home_keyboard(home_languaged))
     await call.answer()
 
 
 @dp.callback_query_handler(text=id_home_list)
 async def get_content(call: types.CallbackQuery):
+    id_user=call.from_user.id
+    print(call)
     id=int(call.data)
     content=dispatcher(id)
 
 
     if(content["msg_type"]=="text"):
         #TODO inserire nella risposta foto se contenute
-        await call.message.reply(text=content['text'])
+        
+        s=content['text']
+        await bot.send_message(id_user,str(s))
 
 
     elif(content["msg_type"]=="video_list"):
-        await call.message.reply(text="videos",reply_markup=videos_keyboard(content))
-
+        
+        await bot.send_message(id_user,text="videos",reply_markup=videos_keyboard(content))
     await call.answer()
 
 @dp.callback_query_handler(text=id_video_list)
 async def get_videos(call: types.CallbackQuery):
+    id_user=call.from_user.id
     id = int(call.data)
     content = dispatcher(id)
-    #TODO inviare video
-    await call.message.reply(text="ecco il video: "+content['label'])
+    src=content['src']
+    
+    
+    
+    await bot.send_message(id_user,"ecco il video:"+content['label'])
+    
+    
+    await bot.send_video(id_user,video=open(src,'rb'))
     await call.answer()
 
 
