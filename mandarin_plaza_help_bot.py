@@ -9,7 +9,7 @@ token ='5396262849:AAHfchJgx8sQHSlDWRAX7K82IWjoAPJBvXA'
 bot=Bot(token=token)
 dp=Dispatcher(bot)
 main_content = json.load(open(r".\main_content.json","rb"),)['contents']
-bot.set_my_commands
+
 print(main_content)
 lang_list = []
 home_languaged=None
@@ -74,7 +74,6 @@ def videos_keyboard(content):
 
 async def welcome(message: types.Message):
     id_user=message.from_user.id
-    
     await bot.send_message(id_user,"hello",reply_markup=lang_keyborad(main_content))
 
 @dp.message_handler(commands=['language'])
