@@ -112,9 +112,12 @@ async def get_content(call: types.CallbackQuery):
 
     if(content["msg_type"]=="text"):
         #TODO inserire nella risposta foto se contenute
-        
         s=content['text']
-        await bot.send_message(id_user,str(s))
+        if(content['src_image'] !="none"):
+            await bot.send_photo(id_user,photo=open(content['src_image'],'rb'),caption=str(s))
+
+        else:
+            await bot.send_message(id_user,str(s))
 
 
     elif(content["msg_type"]=="video_list"):

@@ -8,13 +8,13 @@
           "msg_type": "text",
           "label": "About Mandarin plaza",
           "text": "what is mandarino",
-          "src_image": "example_img1.jpg"
+          "src_image": "./media/photo/foto.jpg"
         },
         {
           "msg_type": "text",
           "label": "about tax refun",
           "text": "what is tax refund",
-          "src_image": "example_img2.jpg"
+          "src_image": "./media/photo/foto.jpg"
         },
         {
           "msg_type": "video_list",
@@ -58,13 +58,13 @@
           "msg_type": "text",
           "label": "Riguardo Mandarin Plaza",
           "text": "cosa è mandarin",
-          "src_image": "example_img1.jpg"
+          "src_image": "./media/photo/foto.jpg"
         },
         {
           "msg_type": "text",
           "label": "Riguardo il tax refund",
           "text": "cosa è il tax refund",
-          "src_image": "example_img2.jpg"
+          "src_image": "./media/photo/foto.jpg"
         },
         {
           "msg_type": "video_list",
